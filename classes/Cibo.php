@@ -1,5 +1,4 @@
 <?php
-require_once 'Prodotto.php';
 
 class Cibo extends Prodotto
 {
