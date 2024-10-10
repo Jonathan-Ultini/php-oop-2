@@ -9,9 +9,8 @@ class Gioco extends Prodotto
     $this->materiale = $materiale;
   }
 
-  public function displayProduct()
+  public function displayProduct($ingredienti = null, $dimensioni = null, $materiale = null)
   {
-    parent::displayProduct();
-    echo "<p>Materiale: {$this->materiale}</p>";
+    parent::displayProduct($this->materiale);
   }
 }

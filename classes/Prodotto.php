@@ -16,16 +16,36 @@ class Prodotto
     $this->tipo = $tipo;
   }
 
-  public function displayProduct()
+  public function displayProduct($ingredienti = null, $dimensioni = null, $materiale = null)
   {
     echo "
-    <div class='product-card'>
-        <img src='{$this->immagine}' alt='{$this->titolo}' style='height:100px; width:100px;'>
-        <h3>{$this->titolo}</h3>
-        <p>Prezzo: {$this->prezzo}€</p>
-        <p>Categoria: ", $this->categoria->displayCategory();
-    echo "</p>
-        <p>Tipo: {$this->tipo}</p>
+    <div class='card mb-4' style='text-align: center;'>
+        <img src='{$this->immagine}' alt='{$this->titolo}' class='card-img-top' style='height:200px; width:auto; margin: 0 auto;'>
+        <div class='card-body'>
+            <h5 class='card-title'>{$this->titolo}</h5>
+            <p class='card-text'>Prezzo: <strong>{$this->prezzo}€</strong></p>
+            <p class='card-text'>Categoria: ", $this->categoria->displayCategory(), "</p>
+            <p class='card-text'>Tipo: {$this->tipo}</p>";
+
+    // Mostra se sono stati forniti
+    $dettagli = [];
+    if ($ingredienti) {
+      $dettagli[] = "Ingredienti: {$ingredienti}";
+    }
+    if ($dimensioni) {
+      $dettagli[] = "Dimensioni: {$dimensioni}";
+    }
+    if ($materiale) {
+      $dettagli[] = "Materiale: {$materiale}";
+    }
+
+    // Mostriamo i dettagli se presenti
+    foreach ($dettagli as $dettaglio) {
+      echo "<p class='card-text'>{$dettaglio}</p>";
+    }
+
+    echo "
+        </div>
     </div>
     ";
   }

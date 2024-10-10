@@ -10,9 +10,8 @@ class Cibo extends Prodotto
     $this->ingredienti = $ingredienti;
   }
 
-  public function displayProduct()
+  public function displayProduct($ingredienti = null, $dimensioni = null, $materiale = null)
   {
-    parent::displayProduct();
-    echo "<p>Ingredienti: {$this->ingredienti}</p>";
+    parent::displayProduct($this->ingredienti);
   }
 }

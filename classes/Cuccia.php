@@ -9,9 +9,8 @@ class Cuccia extends Prodotto
     $this->dimensioni = $dimensioni;
   }
 
-  public function displayProduct()
+  public function displayProduct($ingredienti = null, $dimensioni = null, $materiale = null)
   {
-    parent::displayProduct();
-    echo "<p>Dimensioni: {$this->dimensioni}</p>";
+    parent::displayProduct($this->dimensioni);
   }
 }
