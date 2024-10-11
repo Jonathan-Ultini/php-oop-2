@@ -8,6 +8,10 @@ class Cibo extends Prodotto
   // Costruttore della classe Cibo
   public function __construct($titolo, $prezzo, $immagine, Categoria $categoria, $tipo, $ingredienti)
   {
+
+    if ($prezzo < 0) {
+      throw new ProductCreationException("Il prezzo non può essere negativo.");
+    }
     // Richiamo al costruttore della classe genitore Prodotto
     parent::__construct($titolo, $prezzo, $immagine, $categoria, $tipo);
     // Inizializza la proprietà ingredienti

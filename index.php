@@ -1,4 +1,8 @@
 <?php
+
+// Inclusione del trait
+require_once __DIR__ . '/traits/ScontoUtente.php';
+
 // Inclusione delle classi necessarie per il funzionamento del negozio online
 require_once __DIR__ . '/classes/Prodotto.php';
 require_once __DIR__ . '/classes/Categoria.php';
@@ -24,9 +28,15 @@ require_once __DIR__ . '/data/datiProdotti.php';
       <div class="col-12 col-md-6">
         <?php
         // Visualizzazione dei prodotti tramite il metodo displayProduct di ciascun oggetto
-        $ciboCani->displayProduct();
-        $giocoGatti->displayProduct();
-        $cucciaCani->displayProduct();
+        if (isset($ciboCani)) {
+          $ciboCani->displayProduct();
+        }
+        if (isset($giocoGatti)) {
+          $giocoGatti->displayProduct();
+        }
+        if (isset($cucciaCani)) {
+          $cucciaCani->displayProduct();
+        }
         ?>
       </div>
     </div>
