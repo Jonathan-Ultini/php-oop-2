@@ -2,30 +2,76 @@
 
 class Prodotto
 {
-  // Proprietà per memorizzare il titolo del prodotto
-  public $titolo;
+  private $titolo;
+  private $prezzo;
+  private $immagine;
+  private $categoria;
+  private $tipo;
 
-  // Proprietà per memorizzare il prezzo del prodotto
-  public $prezzo;
+  // Getter e Setter per 'titolo'
+  public function getTitolo()
+  {
+    return $this->titolo;
+  }
 
-  // Proprietà per memorizzare l'immagine del prodotto
-  public $immagine;
+  public function setTitolo($titolo)
+  {
+    $this->titolo = $titolo;
+  }
 
-  // Proprietà per memorizzare la categoria del prodotto
-  public $categoria;
+  // Getter e Setter per 'prezzo'
+  public function getPrezzo()
+  {
+    return $this->prezzo;
+  }
 
-  // Proprietà per memorizzare il tipo del prodotto
-  public $tipo;
+  public function setPrezzo($prezzo)
+  {
+    $this->prezzo = $prezzo;
+  }
+
+  // Getter e Setter per 'immagine'
+  public function getImmagine()
+  {
+    return $this->immagine;
+  }
+
+  public function setImmagine($immagine)
+  {
+    $this->immagine = $immagine;
+  }
+
+  // Getter e Setter per 'categoria'
+  public function getCategoria()
+  {
+    return $this->categoria;
+  }
+
+  public function setCategoria(Categoria $categoria)
+  {
+    $this->categoria = $categoria;
+  }
+
+  // Getter e Setter per 'tipo'
+  public function getTipo()
+  {
+    return $this->tipo;
+  }
+
+  public function setTipo($tipo)
+  {
+    $this->tipo = $tipo;
+  }
 
   // Costruttore della classe Prodotto
   public function __construct($titolo, $prezzo, $immagine, Categoria $categoria, $tipo)
   {
     // Inizializza le proprietà con i valori forniti
-    $this->titolo = $titolo;
-    $this->prezzo = $prezzo;
-    $this->immagine = $immagine;
-    $this->categoria = $categoria;
-    $this->tipo = $tipo;
+    $this->setTitolo($titolo);
+    $this->setPrezzo($prezzo);
+    $this->setImmagine($immagine);
+    $this->setCategoria($categoria);
+    $this->setTipo($tipo);
   }
 
   /**
@@ -44,12 +90,12 @@ class Prodotto
     // Inizio della struttura della card per il prodotto
     echo "
         <div class='card mb-4' style='text-align: center;'>
-            <img src='{$this->immagine}' alt='{$this->titolo}' class='card-img-top' style='height:200px; width:auto; margin: 0 auto;'>
+            <img src='{$this->getImmagine()}' alt='{$this->getTitolo()}' class='card-img-top' style='height:200px; width:auto; margin: 0 auto;'>
             <div class='card-body'>
-                <h5 class='card-title'>{$this->titolo}</h5>
-                <p class='card-text'>Prezzo: <strong>{$this->prezzo}€</strong></p>
-                <p class='card-text'>Categoria: ", $this->categoria->displayCategory(), "</p>
-                <p class='card-text'>Tipo: {$this->tipo}</p>";
+                <h5 class='card-title'>{$this->getTitolo()}</h5>
+                <p class='card-text'>Prezzo: <strong>{$this->getPrezzo()}€</strong></p>
+                <p class='card-text'>Categoria: ", $this->getCategoria()->displayCategory(), "</p>
+                <p class='card-text'>Tipo: {$this->getTipo()}</p>";
 
     // Inizializza un array per raccogliere i dettagli aggiuntivi
     $dettagli = [];

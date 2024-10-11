@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/Prodotto.php';
 
 class Gioco extends Prodotto
 {
@@ -22,6 +23,6 @@ class Gioco extends Prodotto
     // Richiamo al metodo displayProduct della classe genitore Prodotto
     // Passa il materiale come parametro
     // Il metodo della classe genitore si occupa di stampare i dettagli di base del prodotto
-    parent::displayProduct($this->materiale);
+    parent::displayProduct(null, null, $this->materiale);
   }
 }
