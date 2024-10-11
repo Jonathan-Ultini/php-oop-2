@@ -1,7 +1,12 @@
 <?php
 
+require_once __DIR__ . '/../traits/ScontoUtente.php';
 class Prodotto
 {
+
+  use ScontoUtente; // Usa il trait
+
+
   private $titolo;
   private $prezzo;
   private $immagine;
@@ -93,7 +98,7 @@ class Prodotto
             <img src='{$this->getImmagine()}' alt='{$this->getTitolo()}' class='card-img-top' style='height:200px; width:auto; margin: 0 auto;'>
             <div class='card-body'>
                 <h5 class='card-title'>{$this->getTitolo()}</h5>
-                <p class='card-text'>Prezzo: <strong>{$this->getPrezzo()}€</strong></p>
+                <p class='card-text'>Prezzo: <strong>{$this->calcolaSconto($this->getPrezzo())}€</strong></p>
                 <p class='card-text'>Categoria: ", $this->getCategoria()->displayCategory(), "</p>
                 <p class='card-text'>Tipo: {$this->getTipo()}</p>";
 

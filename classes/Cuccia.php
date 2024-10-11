@@ -4,7 +4,7 @@ require_once __DIR__ . '/Prodotto.php';
 class Cuccia extends Prodotto
 {
   // Proprietà per memorizzare le dimensioni specifiche per il prodotto Cuccia
-  public $dimensioni;
+  private $dimensioni;
 
   // Costruttore della classe Cuccia
   public function __construct($titolo, $prezzo, $immagine, Categoria $categoria, $tipo, $dimensioni)
