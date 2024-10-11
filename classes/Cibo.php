@@ -3,10 +3,10 @@ require_once __DIR__ . '/Prodotto.php';
 class Cibo extends Prodotto
 {
   // Proprietà per memorizzare gli ingredienti specifici per il prodotto Cibo
-  private $ingredienti;
+  private string $ingredienti;
 
   // Costruttore della classe Cibo
-  public function __construct($titolo, $prezzo, $immagine, Categoria $categoria, $tipo, $ingredienti)
+  public function __construct(string $titolo, float $prezzo, string $immagine, Categoria $categoria, string $tipo, string $ingredienti)
   {
 
     if ($prezzo < 0) {

@@ -4,10 +4,10 @@ require_once __DIR__ . '/Prodotto.php';
 class Gioco extends Prodotto
 {
   // Proprietà per memorizzare il materiale specifico per il prodotto Gioco
-  private $materiale;
+  private string $materiale;
 
   // Costruttore della classe Gioco
-  public function __construct($titolo, $prezzo, $immagine, Categoria $categoria, $tipo, $materiale)
+  public function __construct(string $titolo, float $prezzo, string $immagine, Categoria $categoria, string $tipo, string $materiale)
   {
     // Richiamo al costruttore della classe genitore Prodotto
     // Inizializza le proprietà ereditate dalla classe Prodotto

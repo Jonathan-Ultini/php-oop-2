@@ -7,11 +7,11 @@ class Prodotto
   use ScontoUtente; // Usa il trait
 
 
-  private $titolo;
-  private $prezzo;
-  private $immagine;
-  private $categoria;
-  private $tipo;
+  private string $titolo;
+  private float $prezzo;
+  private string $immagine;
+  private Categoria $categoria;
+  private string $tipo;
 
   // Getter e Setter per 'titolo'
   public function getTitolo()
@@ -69,7 +69,7 @@ class Prodotto
   }
 
   // Costruttore della classe Prodotto
-  public function __construct($titolo, $prezzo, $immagine, Categoria $categoria, $tipo)
+  public function __construct(string $titolo, float $prezzo, string $immagine, Categoria $categoria, string $tipo)
   {
     // Inizializza le proprietà con i valori forniti
     $this->setTitolo($titolo);

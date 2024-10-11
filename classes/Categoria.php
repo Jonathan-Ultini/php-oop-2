@@ -4,10 +4,10 @@ require_once __DIR__ . '/Prodotto.php';
 class Categoria
 {
   // Proprietà per memorizzare il nome della categoria
-  public $nome;
+  private string $nome;
 
   // Costruttore della classe Categoria
-  public function __construct($nome)
+  public function __construct(string $nome)
   {
     // Inizializza la proprietà nome con il valore fornito
     $this->nome = $nome;
