@@ -12,7 +12,7 @@
 <body>
 
   <!-- Inclusione della navbar -->
-  <?php include 'navbar.php'; ?>
+  <?php include './includes/navbar.php'; ?>
 
 
   <!-- Modale per Login e Registrazione -->
@@ -64,11 +64,11 @@
 
   <!-- Script per alternare il form di login e registrazione -->
   <script>
-  document.getElementById('showRegisterForm').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('loginForm').style.display = 'none';
-    document.getElementById('registerForm').style.display = 'block';
-  });
+    document.getElementById('showRegisterForm').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('registerForm').style.display = 'block';
+    });
   </script>
 
 </body>

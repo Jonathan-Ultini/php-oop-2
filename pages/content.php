@@ -1,14 +1,14 @@
 <?php
 
 // Inclusione del trait
-require_once __DIR__ . '/traits/ScontoUtente.php';
+require_once __DIR__ . '/../traits/ScontoUtente.php';
 
 // Inclusione delle classi necessarie per il funzionamento del negozio online
-require_once __DIR__ . '/classes/Prodotto.php';
-require_once __DIR__ . '/classes/Categoria.php';
-require_once __DIR__ . '/classes/Cibo.php';
-require_once __DIR__ . '/classes/Gioco.php';
-require_once __DIR__ . '/classes/Cuccia.php';
+require_once __DIR__ . '/../classes/Prodotto.php';
+require_once __DIR__ . '/../classes/Categoria.php';
+require_once __DIR__ . '/../classes/Cibo.php';
+require_once __DIR__ . '/../classes/Gioco.php';
+require_once __DIR__ . '/../classes/Cuccia.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +23,13 @@ require_once __DIR__ . '/classes/Cuccia.php';
 
 <body>
   <!-- Inclusione della navbar -->
-  <?php include 'navbar.php'; ?>
+  <?php include '../includes/navbar.php'; ?>
 
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-6">
         <?php
-        require_once __DIR__ . '/data/datiProdotti.php';
+        require_once __DIR__ . '/../data/datiProdotti.php';
 
         // Visualizzazione dei prodotti tramite il metodo displayProduct di ciascun oggetto
         if (isset($ciboCani)) {
