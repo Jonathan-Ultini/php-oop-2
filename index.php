@@ -14,17 +14,17 @@
   <!-- Inclusione della navbar -->
   <?php include './includes/navbar.php'; ?>
 
-
-  <!-- Modale per Login e Registrazione -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login o Registrati</h5>
+          <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- Form di login -->
+          <!-- Form di Login -->
           <form id="loginForm">
             <div class="mb-3">
               <label for="loginEmail" class="form-label">Email</label>
@@ -34,15 +34,13 @@
               <label for="loginPassword" class="form-label">Password</label>
               <input type="password" class="form-control" id="loginPassword" required>
             </div>
-            <button type="submit" class="btn btn-primary">Accedi</button>
+            <button type="submit" class="btn btn-primary w-100">Accedi</button>
           </form>
 
-          <hr>
+          <!-- Link per passare alla registrazione -->
+          <p class="text-center mt-3">Non hai un account? <a href="#" id="showRegisterForm">Registrati</a></p>
 
-          <!-- Link per registrarsi -->
-          <p>Non hai un account? <a href="#" id="showRegisterForm">Registrati qui</a></p>
-
-          <!-- Form di registrazione nascosto -->
+          <!-- Form di Registrazione nascosto di default -->
           <form id="registerForm" style="display: none;">
             <div class="mb-3">
               <label for="registerEmail" class="form-label">Email</label>
@@ -52,8 +50,15 @@
               <label for="registerPassword" class="form-label">Password</label>
               <input type="password" class="form-control" id="registerPassword" required>
             </div>
-            <button type="submit" class="btn btn-primary">Registrati</button>
+            <button type="submit" class="btn btn-primary w-100">Registrati</button>
           </form>
+
+          <!-- Link per tornare al login -->
+          <p class="text-center mt-3" id="backToLogin" style="display: none;">Hai già un account? <a href="#"
+              id="showLoginForm">Accedi</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
         </div>
       </div>
     </div>
@@ -62,14 +67,30 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script per alternare il form di login e registrazione -->
+
   <script>
-    document.getElementById('showRegisterForm').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.getElementById('loginForm').style.display = 'none';
-      document.getElementById('registerForm').style.display = 'block';
-    });
+  document.getElementById('showRegisterForm').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+    document.getElementById('backToLogin').style.display = 'block';
+    document.getElementById('showRegisterForm').parentElement.style.display =
+    'none'; // Nasconde il link "Registrati"
+    document.getElementById('loginModalLabel').textContent = 'Registrazione';
+  });
+
+  document.getElementById('showLoginForm').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('registerForm').style.display = 'none';
+    document.getElementById('backToLogin').style.display = 'none';
+    document.getElementById('showRegisterForm').parentElement.style.display =
+    'block'; // Mostra di nuovo il link "Registrati"
+    document.getElementById('loginModalLabel').textContent = 'Login';
+  });
   </script>
+
+
 
 </body>
 
